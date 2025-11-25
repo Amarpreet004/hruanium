@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   description: "Hranium Infotech provides top-quality professional services including web development, design, and digital solutions.",
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '256x256' },
+      { url: '/fav.ico', sizes: '256x256' },
       { url: '/fav.png', type: 'image/png' }
     ],
     apple: [
       { url: '/fav.png', sizes: '180x180', type: 'image/png' }
     ],
-    shortcut: '/favicon.ico'
+    shortcut: '/fav.ico'
   }
 };
 
