@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Hranium Infotech",
   description: "Hranium Infotech provides top-quality professional services including web development, design, and digital solutions.",
   icons: {
-    icon: './hraniumsymbol.ico'
+    icon: './hranium.ico'
   }
 };
 
