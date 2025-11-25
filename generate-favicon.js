@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const publicDir = path.join(__dirname, 'public');
-const logoPath = path.join(publicDir, 'hraniumlogo.png');
+const logoPath = path.join(publicDir, 'fav.png');
 const icoPath = path.join(publicDir, 'favicon.ico');
 
 async function generateFavicon() {
