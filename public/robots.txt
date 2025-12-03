@@ -1,24 +1,17 @@
 # robots.txt for hruanium.com
 
-# Allow all crawlers
+# robots.txt for hruanium.com
+
+# Allow all crawlers but block internal/system paths
 User-agent: *
-Allow: /
 Disallow: /api/
 Disallow: /.next/
 Disallow: /private/
-Disallow: /*?*
-Allow: /?
 
-# Google-specific rules
-User-agent: Googlebot
-Allow: /
-
-# Bing-specific rules
-User-agent: Bingbot
-Allow: /
-
-# Sitemap location
+# Sitemap location (keep this accurate)
 Sitemap: https://hruanium.com/sitemap.xml
 
-# Crawl delay (optional - 1 second for most bots)
-Crawl-delay: 1
+# Notes:
+# - We intentionally allow URLs with query-strings (no Disallow: /*?*),
+#   so search engines can index pages that rely on query parameters.
+# - Remove or adjust Disallow entries only for internal or sensitive routes.
