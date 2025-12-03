@@ -7,6 +7,7 @@ import Footer from "./_components/footer";
 import ThemeProvider from "./_components/theme-provider";
 import Popup from "./popup/popup";
 import { Analytics } from '@vercel/analytics/next';
+import { SITE, buildOrganizationSchema, buildWebSiteSchema } from "../lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,45 +19,62 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://hruanium.com";
+
 export const metadata: Metadata = {
-  title: "Hruanium | Web Development, UI/UX Design, SEO & Digital Solutions",
-  description: "Professional web development, UI/UX design, graphics, video editing, mobile apps, and SEO services. Transform your digital presence with Hruanium's expert solutions.",
-  keywords: ["web development", "UI/UX design", "SEO services", "mobile app development", "graphics design", "video editing", "digital solutions", "web design", "software development"],
-  metadataBase: new URL("https://hruanium.com"),
+  title: {
+    default: "Hruanium — Web Development, UI/UX & Digital Solutions",
+    template: "%s | Hruanium",
+  },
+  description:
+    "Hruanium provides professional web development, UI/UX design, SEO, mobile apps, and creative digital services to grow your business.",
+  keywords: [
+    "web development",
+    "UI/UX design",
+    "SEO services",
+    "mobile app development",
+    "graphics design",
+    "video editing",
+    "digital solutions",
+  ],
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "https://hruanium.com",
+    canonical: SITE_URL,
+    languages: {
+      "en-US": SITE_URL,
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hruanium.com",
-    siteName: "Hruanium",
-    title: "Hruanium | Web Development, UI/UX Design, SEO & Digital Solutions",
-    description: "Professional web development, UI/UX design, graphics, video editing, mobile apps, and SEO services. Transform your digital presence with Hruanium's expert solutions.",
+    url: SITE_URL,
+    siteName: SITE.name,
+    title: "Hruanium — Web Development, UI/UX & Digital Solutions",
+    description:
+      "Hruanium provides professional web development, UI/UX design, SEO, mobile apps, and creative digital services to grow your business.",
     images: [
       {
-        url: "https://hruanium.com/logo.png",
+        url: `${SITE_URL}/logo.png`,
         width: 1200,
         height: 630,
-        alt: "Hruanium - Digital Solutions",
+        alt: `${SITE.name} - Digital Solutions`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hruanium | Web Development & Digital Solutions",
-    description: "Professional web development, UI/UX design, graphics, video editing, mobile apps, and SEO services.",
-    images: ["https://hruanium.com/logo.png"],
+    title: SITE.name,
+    description:
+      "Hruanium provides web development, UI/UX design, SEO and creative digital services to grow your business.",
+    images: [`${SITE_URL}/logo.png`],
   },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/fav.png", type: "image/png", sizes: "256x256" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
   robots: {
@@ -72,7 +90,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-site-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
   },
 };
 
