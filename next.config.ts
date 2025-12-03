@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  optimizeFonts: true,
+  // `optimizeFonts` was removed/disabled in newer Next.js versions.
+  // Font optimization is handled automatically. Remove this key to avoid warnings.
   
   /* Image optimization */
   images: {
